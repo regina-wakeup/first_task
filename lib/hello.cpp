@@ -2,5 +2,5 @@
 
 ostream& hello::greetings(ostream& stream)
 {
-    return stream << "Hello world!" << endl;
+    return stream << "Hello world!";
 }
