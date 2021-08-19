@@ -3,6 +3,7 @@ from conans import ConanFile, CMake
 
 class HelloConan(ConanFile):
     name = "hello"
+    version = "0.1"
     generators = "cmake"
     exports_sources = "lib/*"
 
