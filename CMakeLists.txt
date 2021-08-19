@@ -11,7 +11,7 @@ include(${PROJECT_SOURCE_DIR}/cmake/conan.cmake)
 	missing
 )
 
-option(BUILD_TESTS "Build unit tests" OFF)
+option(BUILD_TESTS "Build unit tests" ON)
 
 include_directories(${PROJECT_SOURCE_DIR}})
 add_subdirectory(lib)
