@@ -4,11 +4,16 @@ from conans import ConanFile, CMake
 class HelloConan(ConanFile):
     name = "hello"
     version = "0.1"
+    license = "None"
+    author = "Regina Sitkova"
+    url = "https://github.com/regina-wakeup/first_task"
+    description = "fist task for otus course"
+    topics = ("<Put some tag here>", "<here>", "<and here>")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake"
-    exports_sources = "lib/*"
+    exports_sources = "src/*"
 
     def config_options(self):
         if self.settings.os == "Windows":
@@ -16,7 +21,7 @@ class HelloConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="lib")
+        cmake.configure(source_folder="src")
         cmake.build()
 
         # Explicit way:
@@ -25,7 +30,7 @@ class HelloConan(ConanFile):
         # self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
-        self.copy("*.h", dst="include", src="lib")
+        self.copy("*.h", dst="include", src="src")
         self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.dylib*", dst="lib", keep_path=False)
@@ -34,5 +39,3 @@ class HelloConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = ["hello"]
-        if self.settings.compiler in ["gcc", "clang"]:
-            self.cpp_info.cxxflags = ["-std=c++17"]
