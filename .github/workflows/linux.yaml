@@ -19,14 +19,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install tools
-      run: sudo apt-add-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main" &&
-           sudo apt-get update &&
-           sudo apt-get install -y clang-format-12 clang-tidy-12
-    
-    - name: Coding Style checks
-      run: ${{github.workspace}}/format.sh check
-
     - name: Install conan
       run: pip3 install conan
 
@@ -35,9 +27,6 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       # Using -DCMAKE_EXPORT_COMPILE_COMMANDS=ON option to generate compile_commands.json wich will be used by clang-tidy
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-
-    - name: Run static analysis
-      run: ./static-analysis.sh -p ${{github.workspace}}/build
 
     - name: Build
       # Build your program with the given configuration
