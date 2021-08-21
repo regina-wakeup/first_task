@@ -20,14 +20,14 @@ jobs:
       run: pip3 install conan
 
     - name: Build and test conan package
-      run: conan create . admin/stable
+      run: conan create . broccoli/stable
 
     - name: Add remote artifactory
-      run: conan remote add otus http://otus-artifactory-cpp-ce.filonovpv.name/artifactory/api/conan/conan
+      run: conan remote add otus https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
 
     - name: Upload conan package
       run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{ secrets.CONAN_USERNAME }} -r otus &&
-           conan upload --confirm hello/0.*@admin/stable --all -r otus
+           conan upload --confirm hello/0.*@broccoli/stable --all -r otus
 
   build-windows:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -43,14 +43,14 @@ jobs:
       run: pip3 install conan
 
     - name: Build and test conan package
-      run: conan create . admin/stable
+      run: conan create . broccoli/stable
 
     - name: Add remote artifactory
-      run: conan remote add otus http://otus-artifactory-cpp-ce.filonovpv.name/artifactory/api/conan/conan
+      run: conan remote add broccoli https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
 
     - name: Upload conan package
       run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{ secrets.CONAN_USERNAME }} -r otus &&
-           conan upload --confirm hello/0.*@admin/stable --all -r otus
+           conan upload --confirm hello/0.*@broccoli/stable --all -r otus
 
   build-macosx:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -66,12 +66,12 @@ jobs:
       run: pip3 install conan
 
     - name: Build and test conan package
-      run: conan create . admin/stable
+      run: conan create . broccoli/stable
 
     - name: Add remote artifactory
-      run: conan remote add otus http://otus-artifactory-cpp-ce.filonovpv.name/artifactory/api/conan/conan
+      run: conan remote add otus https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
 
     - name: Upload conan package
       run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{ secrets.CONAN_USERNAME }} -r otus &&
-           conan upload --confirm hello/0.*@admin/stable --all -r otus
+           conan upload --confirm hello/0.*@broccoli/stable --all -r otus
 
