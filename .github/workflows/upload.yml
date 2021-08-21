@@ -26,7 +26,7 @@ jobs:
       run: conan remote add otus https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
 
     - name: Upload conan package
-      run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{secrets.CONAN_USERNAME}} -r otus &&
+      run: conan user -p ${{secrets.CONAN_PASSWORD}} -r otus ${{secrets.CONAN_USERNAME}} &&
            conan upload --confirm hello/0.*@broccoli/stable --all -r otus
 
   build-windows:
