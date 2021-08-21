@@ -1,6 +1,6 @@
 #include "hello.h"
 
-ostream& hello::greetings(ostream& stream)
+ostream& hello::greetings(ostream& stream, const string & buildId)
 {
-    return stream << "Hello world!";
+    return stream << "build " << buildId << endl << "Hello, world!";
 }

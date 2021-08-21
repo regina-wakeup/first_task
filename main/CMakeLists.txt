@@ -1,4 +1,4 @@
-add_executable(hello_build main.cpp)
+add_executable(helloworld main.cpp)
 
-target_include_directories(hello_build PUBLIC lib)
-target_link_libraries(hello_build hello)
+target_include_directories(helloworld PUBLIC lib)
+target_link_libraries(helloworld hello)
