@@ -6,6 +6,6 @@
 
 TEST(Hello, simple) {
     std::stringstream ss;
-    hello::greetings(ss);
-    ASSERT_EQ("Hello world!", ss.str());
+    hello::greetings(ss, "12345");
+    ASSERT_EQ("build 12345\nHello, world!", ss.str());
 }
