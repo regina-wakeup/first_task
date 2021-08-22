@@ -7,5 +7,5 @@ using namespace std;
 
 namespace hello
 {
-    ostream& greetings(ostream& stream, const string & buildId);
+    ostream& greetings(ostream& stream, const string & version);
 }
