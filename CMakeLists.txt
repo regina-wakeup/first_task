@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 
-set($ENV{CONAN_REVISIONS_ENABLED} 1)
-
 project(hello CXX)
 
 include(${PROJECT_SOURCE_DIR}/cmake/conan.cmake)
