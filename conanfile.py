@@ -27,7 +27,7 @@ class HelloConan(ConanFile):
         cmake = CMake(self)
         cmake.configure(source_folder="src")
         cmake.build()
-        self.run(set FIRST_TASK_VERSION = %s, self.vesrion)
+        self.run(set $ENV{FIRST_TASK_VERSION} = %s, self.vesrion)
 
         # Explicit way:
         # self.run('cmake %s/hello %s'
