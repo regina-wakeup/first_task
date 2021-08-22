@@ -6,7 +6,7 @@ class HelloConan(ConanFile):
     
     def set_version(self):
         git = tools.Git(folder=self.recipe_folder)
-        self.version = "%s_%s" % (git.get_branch(), git.get_revision())
+        self.version = "%s" % (git.get_revision())
         
     license = "None"
     author = "Regina Sitkova"
