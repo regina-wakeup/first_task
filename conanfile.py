@@ -24,6 +24,7 @@ class HelloConan(ConanFile):
             del self.options.fPIC
 
     def build(self):
+        os.environ["FIRST_TASK_VERSION"] = self.version
         cmake = CMake(self)
         cmake.configure(source_folder="src")
         cmake.build()
