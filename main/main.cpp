@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     auto version = std::getenv("FIRST_TASK_VERSION");
-    if (version == nullptr || version == "\n")
+    if (version == nullptr)
     {
         cout << "Error: invalid version" << endl;
         return 1;
