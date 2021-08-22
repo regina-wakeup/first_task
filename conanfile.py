@@ -24,10 +24,10 @@ class HelloConan(ConanFile):
             del self.options.fPIC
 
     def build(self):
-        self.settings.os.environ["FIRST_TASK_VERSION"] = self.version
         cmake = CMake(self)
         cmake.configure(source_folder="src")
         cmake.build()
+        self.run(set FIRST_TASK_VERSION = %s, self.vesrion)
 
         # Explicit way:
         # self.run('cmake %s/hello %s'
