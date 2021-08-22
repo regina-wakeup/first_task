@@ -3,7 +3,11 @@ from conans import ConanFile, CMake
 
 class HelloConan(ConanFile):
     name = "hello"
-    version = "0.1"
+    
+    def set_version(self):
+        git = tools.Git(folder=self.recipe_folder)
+        self.version = "%s_%s" % (git.get_branch(), git.get_revision())
+        
     license = "None"
     author = "Regina Sitkova"
     url = "https://github.com/regina-wakeup/first_task"
