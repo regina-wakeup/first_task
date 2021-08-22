@@ -29,7 +29,7 @@ jobs:
       run: conan user -p ${{secrets.CONAN_PASSWORD}} -r otus_first_task ${{secrets.CONAN_USERNAME}} &&
            conan upload --confirm hello/0.*@broccoli/stable --all -r otus_first_task
  
- build-windows:
+  build-windows:
     # The CMake configure and build commands are platform agnostic and should work equally
     # well on Windows or Mac.  You can convert this to a matrix build if you need
     # cross-platform coverage.
