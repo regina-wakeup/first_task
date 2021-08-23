@@ -63,6 +63,9 @@ jobs:
       # Run 'test' cmake target
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target test
 
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.12
+  
   build-macosx:
     # The CMake configure and build commands are platform agnostic and should work equally
     # well on Windows or Mac.  You can convert this to a matrix build if you need
