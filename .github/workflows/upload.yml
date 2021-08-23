@@ -16,18 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install conan
-      run: pip3 install conan
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.12
 
-    - name: Build and test conan package
-      run: conan create . broccoli/stable
-
-    - name: Add remote artifactory
-      run: conan config set general.revisions_enabled=1 && conan remote add otus_first_task https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
-
-    - name: Upload conan package
-      run: conan user -p ${{secrets.CONAN_PASSWORD}} -r otus_first_task ${{secrets.CONAN_USERNAME}} &&
-           conan upload --confirm hello/0.*@broccoli/stable --all -r otus_first_task
  
   build-windows:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -39,18 +30,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install conan
-      run: pip3 install conan
-
-    - name: Build and test conan package
-      run: conan create . broccoli/stable
-
-    - name: Add remote artifactory
-      run: conan config set general.revisions_enabled=1 && conan remote add otus_first_task https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
-
-    - name: Upload conan package
-      run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{secrets.CONAN_USERNAME}} -r otus_first_task &&
-           conan upload --confirm hello/0.*@broccoli/stable -r otus_first_task --all
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.12
 
   build-macosx:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -61,17 +42,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Install conan
-      run: pip3 install conan
-
-    - name: Build and test conan package
-      run: conan create . broccoli/stable
-
-    - name: Add remote artifactory
-      run: conan config set general.revisions_enabled=1 && conan remote add otus_first_task https://broccoli.jfrog.io/artifactory/api/conan/fisrt_task-conan
-
-    - name: Upload conan package
-      run: conan user -p ${{secrets.CONAN_PASSWORD}} ${{ secrets.CONAN_USERNAME }} -r otus_first_task &&
-           conan upload --confirm hello/0.*@broccoli/stable -r otus_first_task --all
-
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.12
