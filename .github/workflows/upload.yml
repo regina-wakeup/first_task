@@ -16,6 +16,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install conan
+      run: pip3 install conan
+
+    - name: Build and test conan package
+      run: conan create . broccoli/stable
+      
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.12
 
@@ -29,6 +35,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Install conan
+      run: pip3 install conan
+
+    - name: Build and test conan package
+      run: conan create . broccoli/stable
 
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.12
@@ -42,5 +54,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Install conan
+      run: pip3 install conan
+
+    - name: Build and test conan package
+      run: conan create . broccoli/stable
+
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.12
