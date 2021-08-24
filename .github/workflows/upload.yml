@@ -30,11 +30,11 @@ jobs:
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./bin/helloworld-1.0.${{ github.run_number }}-Linux.deb
-            asset_name: helloworld-Linux.deb
-            asset_content_type: application/vnd.debian.binary-package
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./bin/helloworld-1.0.${{ github.run_number }}-Linux.deb
+        asset_name: helloworld-Linux.deb
+        asset_content_type: application/vnd.debian.binary-package
  
 #  build-windows:
     # The CMake configure and build commands are platform agnostic and should work equally
